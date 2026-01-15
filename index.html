@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OasisKart - Premium E-Commerce Platform & More</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Added Poppins and Inter fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="top-bar-left">
+                        <span><i class="fas fa-map-marker-alt"></i> Deliver to Nimapara 752106</span>
+                    </div>
+                    <div class="top-bar-right">
+                        <span>Customer Service</span>
+                        <span>Today's Deals</span>
+                        <span>Gift Cards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>eKart</span>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search for products, brands and more...">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+
+                    <!-- Header Actions -->
+                    <div class="header-actions">
+                        <!-- Theme Toggle -->
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <!-- Wishlist -->
+                        <button class="header-btn">
+                            <i class="fas fa-heart"></i>
+                            <span>Wishlist</span>
+                        </button>
+
+                        <!-- Account -->
+                        <button class="header-btn" id="accountBtn">
+                            <i class="fas fa-user"></i>
+                            <div class="account-text">
+                                <span class="greeting">Hello, Sign in</span>
+                                <span class="account-label">Account & Lists</span>
+                            </div>
+                        </button>
+
+                        <!-- Cart -->
+                        <button class="header-btn cart-btn" id="cartBtn">
+                            <div class="cart-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count" id="cartCount">0</span>
+                            </div>
+                            <span>Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Navigation -->
+        <nav class="categories-nav">
+            <div class="container">
+                <div class="categories-list" id="categoriesList">
+                    <button class="category-btn active" data-category="All">All Products</button>
+                    <button class="category-btn" data-category="Electronics">Electronics</button>
+                    <button class="category-btn" data-category="Smartphones">Smartphones</button>
+                    <button class="category-btn" data-category="Laptops">Laptops</button>
+                    <button class="category-btn" data-category="Audio">Audio</button>
+                    <button class="category-btn" data-category="Home Appliances">Home Appliances</button>
+                    <button class="category-btn" data-category="Fashion">Fashion</button>
+                    <button class="category-btn" data-category="Books">Books</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar" id="filtersSidebar">
+                    <div class="filters-header">
+                        <h3><i class="fas fa-filter"></i> Filters</h3>
+                        <button class="clear-filters" id="clearFilters">Clear All</button>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-section">
+                        <h4>Price Range</h4>
+                        <div class="price-options">
+                            <label><input type="radio" name="price" value="0-5000"> Under ₹5,000</label>
+                            <label><input type="radio" name="price" value="5000-15000"> ₹5,000 - ₹15,000</label>
+                            <label><input type="radio" name="price" value="15000-30000"> ₹15,000 - ₹30,000</label>
+                            <label><input type="radio" name="price" value="30000-50000"> ₹30,000 - ₹50,000</label>
+                            <label><input type="radio" name="price" value="50000-100000"> ₹50,000 - ₹1,00,000</label>
+                            <label><input type="radio" name="price" value="100000-999999"> Above ₹1,00,000</label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-section">
+                        <h4>Customer Rating</h4>
+                        <div class="rating-options">
+                            <label><input type="radio" name="rating" value="4"> 4★ & above</label>
+                            <label><input type="radio" name="rating" value="3"> 3★ & above</label>
+                            <label><input type="radio" name="rating" value="2"> 2★ & above</label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-section">
+                        <h4>Availability</h4>
+                        <label><input type="checkbox" id="inStockOnly"> In Stock Only</label>
+                    </div>
+                </aside>
+
+                <!-- Products Section -->
+                <section class="products-section">
+                    <div class="products-header">
+                        <h2 id="sectionTitle">All Products</h2>
+                        <div class="products-count" id="productsCount">Loading products...</div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded here -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-bag"></i> Shopping Cart</h3>
+                <button class="close-btn" id="closeCart">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="cart-total">
+                    <strong>Total: ₹<span id="cartTotal">0</span></strong>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal">
+            <div class="modal-header">
+                <h3 id="authTitle">Sign In</h3>
+                <button class="close-btn" id="closeAuth">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="authForm">
+                    <div class="form-group" id="nameGroup" style="display: none;">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn" id="authSubmit">Sign In</button>
+                </form>
+                <div class="auth-switch">
+                    <span id="authSwitchText">Don't have an account?</span>
+                    <button class="link-btn" id="authSwitchBtn">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Footer -->
+    <footer class="developer-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <p class="developer-name">Developed by Akshaya Raj</p>
+                <div class="social-links">
+                    <a href="https://github.com/Akshay1856" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshaya-raj-39a98132a/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/akshay__1856/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:akshaya18raj@gmail.com" class="social-link" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 OasisKart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
